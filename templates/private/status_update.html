@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Server Status{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('dashboard') }}">Dashboard</a>
+    </div>
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="nav navbar-nav" style="float: right">
+      <li class="active"><a href="#">Welcome {{ current_user.username }}!</a></li>
+      <li><a href="{{ url_for('status') }}">Status</a></li>
+      <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock navbar %}}
+
+{% block content %}
+{# LOGO #}
+<div class="container" style="margin-top: 50px">
+
+    {# Display logo #}
+    <div style="margin-bottom: 50px">
+        <img
+                src="{{ url_for('static', filename=resources.LOGO) }}"
+                class="center-block img-responsive mx-auto d-block"
+                alt="Logo"
+                width="100"
+                height="100"
+        >
+    </div>
+
+</div>
+
+{# Status Creation #}
+<div class="container">
+    <form action="{{ url_for('statusUpdate') }}" method="post">
+        <div class="form-group">
+            <label for="status">Server Status</label>
+            <input type="text" class="form-control" name="status" placeholder="Online">
+        </div>
+
+        <div class="form-group">
+            <label for="status">Message</label>
+            <input type="text" class="form-control" name="message" placeholder="Type a message">
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Change Status</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock scripts %}}

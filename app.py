@@ -33,6 +33,8 @@ db = SQLAlchemy()
 # Login instance
 login_manager = LoginManager()
 
+status = "Online"
+message = "Type a message here"
 
 class UserModel(UserMixin):
     def __init__(self, id, username, gm_level):
@@ -480,6 +482,25 @@ def data_download():
 
     return render_template('private/data_download.html', resources=resources)
 
+
+@app.route('/status/update', methods=['GET', 'POST'])
+@login_required
+def statusUpdate():
+    global status, message
+    if current_user.gm_level != 9:
+        return redirect(url_for('status'))
+
+
+    if request.method == 'POST':
+            status = request.form['status']
+            message = request.form['message']
+
+    return render_template('private/status_update.html', resources=resources)
+
+# Server Status
+@app.route('/status', methods=['GET', 'POST'])
+def status():
+    return render_template('private/status.html', resources=resources, status=status, message=message)
 
 # Key creation page
 @app.route('/dashboard', methods=['GET', 'POST'])
