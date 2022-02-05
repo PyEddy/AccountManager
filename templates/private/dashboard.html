@@ -11,6 +11,7 @@
     </ul>
     <ul class="nav navbar-nav" style="float: right">
       <li class="active"><a href="#">Welcome {{ current_user.username }}!</a></li>
+      <li><a href="{{ url_for('approve_names') }}">Approve Names</a></li>
       <li><a href="{{ url_for('statusUpdate') }}">Update Status</a></li>
       <li><a href="{{ url_for('status') }}">View Status</a></li>
       <li><a href="{{ url_for('logout') }}">Logout</a></li>
