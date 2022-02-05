@@ -538,7 +538,7 @@ def dashboard():
     return render_template('private/dashboard.html', current_user=current_user, resources=resources)
 
 # Name approval dashboard
-@app.route('/approve_names', methods=['GET', 'POST'])
+@app.route('/approve/names', methods=['GET', 'POST'])
 @login_required
 def approve_names():
     message = ''
