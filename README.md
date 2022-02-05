@@ -1,5 +1,11 @@
 # Darkflame Universe Account Manager
 
+THIS FORK INCLUDES LEGO6245'S NAME APPROVAL DASHBOARD (https://github.com/Lego6245)
+
+Alternative instructions: https://gist.github.com/Saymoan/cee72d3e6244a51f70124ac86a2802e9#installing-accountmanager (the git clone needs to be changed)
+
+##########
+
 This is a quick and simple web application intended for account creation and management for a [DLU](https://github.com/DarkflameUniverse/DarkflameServer) instance created by Wincent.
 
 Logo by BlasterBuilder.
