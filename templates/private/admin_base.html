@@ -6,9 +6,6 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="{{ url_for('dashboard') }}">Dashboard</a>
     </div>
-    <ul class="nav navbar-nav">
-        <a class="navbar-brand" href="{{ url_for('approve_names') }}">Name Approval</a>
-    </ul>
     <ul class="nav navbar-nav" style="float: right">
       <li class="active"><a href="#">Welcome {{ current_user.username }}!</a></li>
       <li><a href="{{ url_for('logout') }}">Logout</a></li>
